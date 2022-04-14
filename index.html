@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>Python Crash Course</title>
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
 <script
     src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -12,52 +13,4874 @@ $(function(){
   $("#footer").load("footer.html"); 
 });
 </script> 
+
+<style>
+p.content-media__description {
+    border-width: 0;
+    box-sizing: border-box;
+    color: #555;
+    display: block;
+    font-family: opensans, helvetica, arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1rem;
+    margin: 1rem 0 0;
+    padding: 0;
+  }
+
+  p.content-text__container {
+  border-width: 0;
+  box-sizing: border-box;
+  color: #333;
+  font-family: glbOpenSans,"Open Sans",Arial,Inter,-apple-system,"system-ui",Roboto,"Helvetica Neue",Helvetica,Noto,Ubuntu,"Segoe UI",sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -.6px;
+  line-height: 30px;
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+p.content-text__container a {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #c4170c;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: 700;
+  letter-spacing: -.6px;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+
+p.content-text__container a:hover {
+  color: #a6130a;
+  text-decoration-line: underline;
+}
+
+
+
+
+body {
+  font-family: "Times New Roman";
+  background: #eee;
+  /* This is just a helper in case the element has a transparent background or white colors. */
+}
+
+article {
+  border-width: 0;
+  box-sizing: border-box;
+  color: #333;
+  display: block;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 23.4px;
+  margin: 0;
+  padding: 0;
+}
+
+article meta {
+  box-sizing: inherit;
+}
+
+div.row.medium-uncollapsed.content-media.content-photo {
+  border-width: 0;
+  box-sizing: border-box;
+  clear: both;
+  color: #333;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: 400;
+  line-height: 23.4px;
+  margin: 2.5rem auto;
+  max-width: 85rem;
+  padding: 0;
+}
+
+div.row.medium-uncollapsed.content-media.content-photo:after {
+  clear: both;
+  content: " ";
+  display: table;
+  flex-basis: 0;
+  order: 1;
+}
+
+div.row.medium-uncollapsed.content-media.content-photo:before {
+  content: " ";
+  display: table;
+  flex-basis: 0;
+  order: 1;
+}
+
+div.mc-column.content-media__container {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  float: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0 auto;
+  max-width: 85rem;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+div.mc-column.content-media__container:after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+
+div.mc-column.content-media__container:before {
+  content: " ";
+  display: table;
+}
+
+@media (min-width: 64rem) {
+  div.mc-column.content-media__container {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 42.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 70%;
+  }
+
+  div.mc-column.content-media__container:after {
+    clear: both;
+    content: " ";
+    display: table;
+  }
+
+  div.mc-column.content-media__container:before {
+    content: " ";
+    display: table;
+  }
+
+  div.mc-column.content-media__container:last-child {
+    float: none;
+  }
+
+  div.mc-column.content-media__container:main {
+    float: none;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  div.mc-column.content-media__container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (min-width: 64rem) and (min-width: 64em) {
+  div.mc-column.content-media__container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+div.content-media-container.glb-skeleton-box {
+  --skeleton-height: auto;
+  --skeleton-width: 100%;
+  animation: bg-skeleton-box 1s linear infinite;
+  background-color: #eee;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-position: -2500% 0;
+  background-repeat: no-repeat no-repeat;
+  background-size: 95% 100%;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 76.71451355661883% 0 0;
+  position: relative;
+}
+
+figure.content-media-figure {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: auto;
+  left: 0;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+amp-img.content-media-image.i-amphtml-element.i-amphtml-layout-responsive.i-amphtml-layout-size-defined.i-amphtml-built.i-amphtml-layout {
+  box-sizing: inherit;
+  color: #333;
+  display: inline-block;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  line-height: 23.4px;
+  overflow: hidden;
+}
+
+amp-img.content-media-image.i-amphtml-element.i-amphtml-layout-responsive.i-amphtml-layout-size-defined.i-amphtml-built.i-amphtml-layout:not([layout="container"]):not(.i-amphtml-element) {
+  color: transparent;
+  line-height: 0;
+}
+
+article
+  amp-img.content-media-image.i-amphtml-element.i-amphtml-layout-responsive.i-amphtml-layout-size-defined.i-amphtml-built.i-amphtml-layout
+  i-amphtml-sizer {
+  box-sizing: inherit;
+  color: #333;
+  display: block;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  line-height: 23.4px;
+  padding-top: 76.7145%;
+}
+
+img.i-amphtml-fill-content.i-amphtml-replaced-content {
+  border-style: none;
+  bottom: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 0;
+  left: 0;
+  line-height: inherit;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+}
+
+article figure.content-media-figure figcaption {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+p.content-media__description {
+  border-width: 0;
+  box-sizing: border-box;
+  color: #555;
+  display: block;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 0.75rem;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1rem;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+div.mc-column.mc-side-item__container {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  float: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0 auto 1.75rem;
+  max-width: 85rem;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+div.mc-column.mc-side-item__container:after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+
+div.mc-column.mc-side-item__container:before {
+  content: " ";
+  display: table;
+}
+
+@media screen and (min-width: 64em) {
+  div.mc-column.mc-side-item__container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  div.mc-column.mc-side-item__container {
+    float: none;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 42.5rem;
+    max-width: none;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    position: relative;
+    top: 0.5rem;
+    width: 100%;
+  }
+
+  div.mc-column.mc-side-item__container:after {
+    clear: both;
+    content: none;
+    display: table;
+    margin-bottom: 1.75rem;
+  }
+
+  div.mc-column.mc-side-item__container:before {
+    content: " ";
+    display: table;
+  }
+
+  div.mc-column.mc-side-item__container:last-child {
+    float: none;
+  }
+
+  div.mc-column.mc-side-item__container:main {
+    float: none;
+  }
+}
+
+@media screen and (min-width: 64rem) and (min-width: 64em) {
+  div.mc-column.mc-side-item__container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 64rem) and (min-width: 64rem) {
+  div.mc-column.mc-side-item__container {
+    margin-bottom: 0;
+  }
+}
+
+div.mc-side-item.mc-side-item--right.content-ads.content-ads--side-ad {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  width: 300px;
+}
+
+@media (min-width: 64rem) {
+  div.mc-side-item.mc-side-item--right.content-ads.content-ads--side-ad {
+    float: right;
+    margin-left: 4.16667%;
+    margin-right: 12.5%;
+  }
+}
+
+@media (max-width: 63.9375rem) {
+  div.mc-side-item.mc-side-item--right.content-ads.content-ads--side-ad {
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 80rem) {
+  div.mc-side-item.mc-side-item--right.content-ads.content-ads--side-ad {
+    margin-right: 20.8333%;
+  }
+}
+
+@media (min-width: 85rem) {
+  div.mc-side-item.mc-side-item--right.content-ads.content-ads--side-ad {
+    margin-right: 25%;
+  }
+}
+
+div#banner_materia1.tag-manager-publicidade-container {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+div.mc-column.content-text.active-extra-styles {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  float: none;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  letter-spacing: -0.025em;
+  line-height: 150%;
+  margin: 0 auto 24px;
+  max-width: 85rem;
+  overflow-wrap: break-word;
+  padding: 0 1.5rem;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+div.mc-column.content-text.active-extra-styles:after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+
+div.mc-column.content-text.active-extra-styles:before {
+  content: " ";
+  display: table;
+}
+
+@media (min-width: 64rem) {
+  div.mc-column.content-text.active-extra-styles {
+    float: none;
+    font-size: 20px;
+    letter-spacing: -0.03em;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 42.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 70%;
+  }
+
+  div.mc-column.content-text.active-extra-styles:after {
+    clear: both;
+    content: " ";
+    display: table;
+  }
+
+  div.mc-column.content-text.active-extra-styles:before {
+    content: " ";
+    display: table;
+  }
+
+  div.mc-column.content-text.active-extra-styles:last-child {
+    float: none;
+  }
+
+  div.mc-column.content-text.active-extra-styles:main {
+    float: none;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  div.mc-column.content-text.active-extra-styles {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (min-width: 64rem) and (min-width: 64em) {
+  div.mc-column.content-text.active-extra-styles {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+p.content-text__container {
+  border-width: 0;
+  box-sizing: border-box;
+  color: #333;
+  font-family: inherit;
+  font-family: glbOpenSans, "Open Sans", Arial, Inter, -apple-system,
+    "system-ui", Roboto, "Helvetica Neue", Helvetica, Noto, Ubuntu, "Segoe UI",
+    sans-serif;
+  font-size: 20px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: 400;
+  letter-spacing: -0.6px;
+  line-height: 30px;
+  margin: 0;
+  overflow-wrap: break-word;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+article p.content-text__container a {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #c4170c;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+
+article p.content-text__container a:hover {
+  color: #a6130a;
+  text-decoration-line: underline;
+}
+
+div.wall.protected-content {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+div.content-ads.content-ads--reveal {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 64rem) {
+  div.content-ads.content-ads--reveal {
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    transition: height 0.9s;
+    width: 970px;
+  }
+}
+
+div.tag-manager-publicidade-container.mc-has-reveal.mc-has-ad-lazyload {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+div.content-intertitle {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #111;
+  font-family: inherit;
+  font-size: 24px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 110%;
+  margin: 24px 0 -0.5rem;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+@media (min-width: 64rem) {
+  div.content-intertitle {
+    font-size: 32px;
+    letter-spacing: -0.04em;
+  }
+}
+
+article div.content-intertitle h2 {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #111;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  letter-spacing: -1.28px;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+article div.mc-column.content-text.active-extra-styles p {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  letter-spacing: -0.6px;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+div.bs-video-block.mc-column.content-media.content-video {
+  border-width: 0;
+  box-sizing: inherit;
+  clear: both;
+  color: #333;
+  float: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 2.5rem auto;
+  max-width: 85rem;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+div.bs-video-block.mc-column.content-media.content-video:after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+
+div.bs-video-block.mc-column.content-media.content-video:before {
+  content: " ";
+  display: table;
+}
+
+@media (min-width: 64rem) {
+  div.bs-video-block.mc-column.content-media.content-video {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 42.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 70%;
+  }
+
+  div.bs-video-block.mc-column.content-media.content-video:after {
+    clear: both;
+    content: " ";
+    display: table;
+  }
+
+  div.bs-video-block.mc-column.content-media.content-video:before {
+    content: " ";
+    display: table;
+  }
+
+  div.bs-video-block.mc-column.content-media.content-video:last-child {
+    float: none;
+  }
+
+  div.bs-video-block.mc-column.content-media.content-video:main {
+    float: none;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  div.bs-video-block.mc-column.content-media.content-video {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (min-width: 64rem) and (min-width: 64em) {
+  div.bs-video-block.mc-column.content-media.content-video {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+div.content-media__container {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+article div.content-media__container meta {
+  box-sizing: inherit;
+}
+
+div.content-video__bigger-player-description-fixer {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+article div.content-video__bigger-player-description-fixer meta {
+  box-sizing: inherit;
+}
+
+article.content-video {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+section.content-video__video-container {
+  background-color: #efefef;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 56.25% 0 0;
+  position: relative;
+  width: 100%;
+}
+
+div.content-video__video {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 101%;
+  left: 0;
+  line-height: inherit;
+  margin: -0.5% 0 0 -0.5%;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 101%;
+}
+
+div.content-video__placeholder {
+  background-color: #000;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+div.content-video__placeholder:before {
+  background-color: rgba(0, 0, 0, 0.5);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+div.content-video__placeholder:after {
+  background-repeat: no-repeat no-repeat;
+  content: "";
+  height: 22%;
+  left: 45%;
+  opacity: 0.97;
+  position: absolute;
+  top: 39%;
+  transition: filter 0.3s;
+  width: 14%;
+}
+
+div.content-video__placeholder:hover:after {
+  filter: drop-shadow(rgba(255, 255, 255, 0.5) 0 0 15px);
+}
+
+img.content-video__placeholder__thumb {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  line-height: inherit;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+article div.content-video__video bs-player {
+  box-sizing: inherit;
+}
+
+style.clappr-style {
+  box-sizing: inherit;
+  color: #333;
+  display: none;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  line-height: 23.4px;
+}
+
+div#wp3-player-2.clappr-player {
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: block;
+  float: none;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: 400;
+  height: 100%;
+  line-height: inherit;
+  margin: 0;
+  max-width: none;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  text-shadow: none;
+  transform: translate3d(0, 0, 0);
+  user-select: none;
+  width: 100%;
+}
+
+div#wp3-player-2.clappr-player:focus {
+  outline: 0;
+}
+
+div.dfp-ad-overlay.dfp-ad-overlay--poster-mode {
+  border-width: 0;
+  bottom: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: block;
+  float: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  left: 0;
+  line-height: inherit;
+  margin: 0;
+  max-width: none;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 0.3s;
+  vertical-align: baseline;
+  visibility: hidden;
+  width: 100%;
+  z-index: 994;
+}
+
+div.container-overlay {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: block;
+  float: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  max-width: none;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+  width: 100%;
+  z-index: 2;
+}
+
+div.drawer-header.drawer-header--hidden {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: block;
+  float: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 57px;
+  left: 0;
+  line-height: inherit;
+  margin: 0;
+  max-width: none;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  transform: translateY(100%);
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  width: 100%;
+  z-index: 0;
+}
+
+div.drawer-header-panel.drawer-header-panel--hidden {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 4px 4px 0;
+  position: relative;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+div.opposites-container {
+  align-items: flex-start;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: flex;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  justify-content: space-between;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+div.drawer-header-position__left {
+  align-items: center;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+  width: calc(100% - 48px);
+}
+
+div.drawer-header-element.drawer-header-title {
+  border-width: 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: opensans-regular;
+  font-size: 18px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin: 0 0 6px;
+  overflow: hidden;
+  padding: 12px;
+  pointer-events: none;
+  text-align: left;
+  text-overflow: ellipsis;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 2px;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  white-space: nowrap;
+  will-change: opacity;
+}
+
+div.drawer-header-position__right {
+  align-items: center;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+div.drawer-header-element.drawer-header-button {
+  background-color: transparent;
+  border-width: 0;
+  box-sizing: content-box;
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 24px;
+  line-height: inherit;
+  margin: 0;
+  padding: 12px;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  width: 24px;
+  will-change: opacity;
+}
+
+div.drawer-header__close {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+article div.drawer-header__close svg {
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 18px;
+  line-height: 23.4px;
+  text-align: center;
+}
+
+article svg g {
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 18px;
+  line-height: 23.4px;
+  text-align: center;
+}
+
+article g path {
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 18px;
+  line-height: 23.4px;
+  text-align: center;
+}
+
+div.video-rec-after-end {
+  background-color: #333;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: none;
+  float: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  line-height: inherit;
+  margin: 0;
+  max-width: none;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  vertical-align: baseline;
+  width: 100%;
+  z-index: 1000;
+}
+
+div.video-rec-after-end__screen.video-rec-after-end__screen--next-video {
+  -webkit-box-align: center;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  align-items: center;
+  background-color: transparent;
+  background-image: url();
+  background-position: 0 0;
+  background-repeat: no-repeat no-repeat;
+  background-size: cover;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  justify-content: center;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  vertical-align: baseline;
+  width: 100%;
+  z-index: 1000;
+}
+
+div.video-rec-after-end__screen.video-rec-after-end__screen--next-video:after {
+  background-color: #000;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1001;
+}
+
+div.video-rec-after-end__content {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  max-width: 72%;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+  z-index: 1002;
+}
+
+span.video-rec-after-end__screen__chapeu {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-family: opensans-regular;
+  font-size: 14px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  line-height: 19px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+@media screen and (min-width: 620px) {
+  span.video-rec-after-end__screen__chapeu {
+    font-family: opensans-regular;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+}
+
+span.video-rec-after-end__screen__title {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: pointer;
+  display: -webkit-box;
+  font-family: opensans-bold;
+  font-size: 4.5vw;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  line-height: 5.5vw;
+  margin: 2px 0 0;
+  overflow: hidden;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+@media screen and (min-width: 620px) {
+  span.video-rec-after-end__screen__title {
+    display: block;
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 8px;
+  }
+}
+
+div.video-rec-after-end__screen__canvas.canvas-o76 {
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  align-items: center;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 12vw;
+  justify-content: center;
+  line-height: inherit;
+  margin: 10px 0 0;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  transform: scale(0.5);
+  vertical-align: baseline;
+}
+
+@media screen and (min-width: 620px) {
+  div.video-rec-after-end__screen__canvas.canvas-o76 {
+    height: 70px;
+    margin-top: 30px;
+    transform: none;
+  }
+}
+
+canvas#canvas-o76 {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+svg.video-rec-after-end__screen__canvas__play {
+  box-sizing: inherit;
+  color: #fff;
+  cursor: pointer;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 18px;
+  line-height: 23.4px;
+  max-width: 40px;
+  position: absolute;
+  text-align: center;
+}
+
+article svg.video-rec-after-end__screen__canvas__play g {
+  box-sizing: inherit;
+  color: #fff;
+  cursor: pointer;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 18px;
+  line-height: 23.4px;
+  text-align: center;
+}
+
+button.video-rec-after-end__screen__btn-cancel.btn-cancel-o76 {
+  background-color: transparent;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-family: opensans-regular;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  line-height: 18px;
+  margin: 10px auto 0;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+button.video-rec-after-end__screen__btn-cancel.btn-cancel-o76:active {
+  outline: 0;
+}
+
+@media screen and (min-width: 620px) {
+  button.video-rec-after-end__screen__btn-cancel.btn-cancel-o76 {
+    font-family: opensans-regular;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    margin: 28px auto 0;
+  }
+}
+
+div.video-rec-cancel-screen {
+  -webkit-box-align: center;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  align-items: center;
+  background-color: transparent;
+  background-position: 0 0;
+  background-repeat: no-repeat no-repeat;
+  background-size: cover;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: default;
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  float: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  justify-content: center;
+  line-height: inherit;
+  margin: 0;
+  max-width: none;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  vertical-align: baseline;
+  width: 100%;
+  z-index: 1000;
+}
+
+div.video-rec-cancel-screen__header {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: default;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+span.video-rec-cancel-screen__title {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: default;
+  font-family: opensans-regular;
+  font-size: 14px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+@media screen and (min-width: 620px) {
+  span.video-rec-cancel-screen__title {
+    font-size: 20px;
+    margin-top: 5px;
+  }
+}
+
+button.video-rec-cancel-screen__close-button.close-o76.media-control-button {
+  background-color: transparent;
+  border-width: 0;
+  box-sizing: content-box;
+  color: #000;
+  cursor: pointer;
+  display: none;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: 24px;
+  margin: 0;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  width: 24px;
+}
+
+button.video-rec-cancel-screen__close-button.close-o76.media-control-button:focus {
+  outline: none;
+}
+
+article
+  button.video-rec-cancel-screen__close-button.close-o76.media-control-button
+  svg {
+  box-sizing: inherit;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+article svg path {
+  box-sizing: inherit;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13.3333px;
+  text-align: center;
+}
+
+div.video-rec-cancel-screen__video-list {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: default;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 15px 0 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+@media screen and (min-width: 620px) {
+  div.video-rec-cancel-screen__video-list {
+    margin-top: 25px;
+    max-width: 80%;
+  }
+}
+
+button.video-rec-cancel-screen__replay.replay-o76 {
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: transparent;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  fill: #fff;
+  font-family: opensans-regular;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  line-height: 18px;
+  margin: 18px auto 0;
+  outline: 0;
+  padding: 8px;
+  text-align: center;
+  z-index: 1002;
+}
+
+@media screen and (min-width: 620px) {
+  button.video-rec-cancel-screen__replay.replay-o76 {
+    font-family: opensans-regular;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-top: 35px;
+  }
+}
+
+article button.video-rec-cancel-screen__replay.replay-o76 svg {
+  box-sizing: inherit;
+  color: #fff;
+  cursor: pointer;
+  font-family: opensans-regular;
+  letter-spacing: -0.3px;
+  line-height: 18px;
+  margin-right: 6px;
+  text-align: center;
+}
+
+div.container.master-container.pointer-enabled {
+  background-color: #000;
+  border-style: none;
+  bottom: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  display: block;
+  float: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  line-height: inherit;
+  margin: 0;
+  max-width: 100%;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  vertical-align: baseline;
+  width: 100%;
+}
+
+div.dai-ad-container.dai-ad-container--hidden {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  display: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  left: 0;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  vertical-align: baseline;
+  width: 100%;
+  z-index: 448;
+}
+
+div.subtitle__wrapper.w960 {
+  border-width: 0;
+  bottom: auto;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  display: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  transition: transform 0.3s ease-out;
+  vertical-align: baseline;
+  width: 100%;
+  will-change: transform;
+  z-index: 993;
+}
+
+p.subtitle.subtitle--opacity-media-control-hide {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-width: 0;
+  box-sizing: inherit;
+  color: #f1f1f1;
+  cursor: pointer;
+  display: inline-block;
+  font-family: clearsans-bold, sans-serif;
+  font-size: 16.35px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: 1.4;
+  margin: auto;
+  opacity: 1;
+  padding: 0;
+  pointer-events: none;
+  position: relative;
+  text-align: center;
+  transition: opacity 0.3s ease-in-out;
+  vertical-align: baseline;
+}
+
+div.poster {
+  align-items: center;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  justify-content: center;
+  line-height: inherit;
+  margin: 0;
+  opacity: 1;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  visibility: visible;
+  width: 100%;
+  z-index: 998;
+}
+
+div.poster__background {
+  background-image: url(https://s04.video.glbimg.com/x720/10054159.jpg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat no-repeat;
+  background-size: cover;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  left: 0;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  vertical-align: baseline;
+  width: 100%;
+}
+
+div.poster__background-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  left: 0;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  vertical-align: baseline;
+  width: 100%;
+}
+
+div.poster__play-wrapper {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 30%;
+  line-height: inherit;
+  margin: 0;
+  opacity: 0.97;
+  padding: 0;
+  text-align: center;
+  transition: filter 0.3s;
+  vertical-align: baseline;
+  width: 100%;
+}
+
+article div.poster__play-wrapper svg {
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  display: inline;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 18px;
+  height: 100%;
+  line-height: 23.4px;
+  text-align: center;
+}
+
+div.spinner.spinner--hidden {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: default;
+  display: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 48px;
+  left: 50%;
+  line-height: inherit;
+  margin: -24px 0 0 -24px;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  vertical-align: baseline;
+  width: 48px;
+  z-index: 998;
+}
+
+figure.spinner__svg {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: default;
+  display: block;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  line-height: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+  width: 100%;
+}
+
+article figure.spinner__svg svg {
+  box-sizing: inherit;
+  color: #333;
+  cursor: default;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  text-align: center;
+}
+
+div.id-playback {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+video#c74 {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  vertical-align: baseline;
+  width: 100%;
+}
+
+div.media-control.media-control-hide {
+  border-radius: 0;
+  border-width: 0;
+  bottom: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: block;
+  float: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  left: 0;
+  line-height: inherit;
+  margin: 0 auto;
+  max-width: none;
+  opacity: 1;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  width: 100%;
+  will-change: opacity;
+  z-index: 997;
+}
+
+div.media-control.media-control-hide:after {
+  background-color: initial;
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  bottom: 0;
+  content: "";
+  height: 88px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  transition: visibility 0.3s, opacity 0.3s;
+  width: 100%;
+  z-index: -1;
+}
+
+div.media-control.media-control-hide:before {
+  background-color: initial;
+  background-image: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.7));
+  content: "";
+  height: 88px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: visibility 0.3s, opacity 0.3s;
+  width: 100%;
+  z-index: -1;
+}
+
+div.media-control-panel {
+  border-width: 0;
+  box-sizing: border-box;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
+div.media-control-panel__back-layer {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+div.media-control-position__left {
+  align-items: center;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+  z-index: 300;
+}
+
+div.media-control-position__center {
+  align-items: center;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: flex;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  justify-content: center;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+div.media-control-position__right {
+  align-items: center;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+  z-index: 300;
+}
+
+div.media-control-panel__upper {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 4px 4px 0;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+button.media-control-button.media-control-element {
+  background-color: transparent;
+  border-width: 0;
+  box-sizing: content-box;
+  color: #000;
+  cursor: pointer;
+  display: none;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: 24px;
+  margin: 0;
+  opacity: 0;
+  padding: 12px;
+  pointer-events: none;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  width: 24px;
+  will-change: opacity;
+}
+
+button.media-control-button.media-control-element:focus {
+  outline: none;
+}
+
+article button.media-control-button.media-control-element svg {
+  box-sizing: inherit;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+div.video-info.media-control-element.video-info--inline.video-info--hidden {
+  border-width: 0;
+  box-sizing: border-box;
+  color: #fff;
+  display: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  opacity: 0;
+  padding: 12px;
+  pointer-events: none;
+  text-align: center;
+  text-shadow: none;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  will-change: opacity;
+  z-index: 996;
+}
+
+div.video-info__data {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 24px;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  transition: all 0.2s;
+  vertical-align: baseline;
+  visibility: visible;
+}
+
+div.video-info__data-title {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  display: -webkit-box;
+  font-family: opensans-regular;
+  font-size: 18px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin: 0 0 5px;
+  overflow: hidden;
+  padding: 0;
+  text-align: left;
+  text-overflow: ellipsis;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 2px;
+  vertical-align: baseline;
+}
+
+div.video-info__data-subtitle {
+  align-items: center;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  vertical-align: baseline;
+}
+
+div.video-info__data-subtitle-rating {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  display: flex;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0 8px 0 0;
+  padding: 0;
+  text-align: left;
+  vertical-align: baseline;
+}
+
+div.video-info__data-subtitle-rating:empty {
+  margin-right: 0;
+}
+
+div.video-info__data-subtitle-program {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  display: -webkit-box;
+  font-family: opensans-regular;
+  font-size: 14px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  letter-spacing: 0;
+  line-height: 18px;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  text-align: left;
+  text-overflow: ellipsis;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 2px;
+  vertical-align: baseline;
+}
+
+div.video-info__status {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  font-family: opensans-regular;
+  font-size: 16px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: 16px;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  transition: all 0.2s;
+  vertical-align: baseline;
+}
+
+div.media-control-panel__middle {
+  align-items: center;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: flex;
+  flex: 1 1 0;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  justify-content: space-between;
+  line-height: inherit;
+  margin: 0;
+  padding: 4px;
+  position: absolute;
+  text-align: center;
+  vertical-align: baseline;
+  width: 100%;
+}
+
+div.quick-seek.hidden.media-control-element {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  left: 0;
+  line-height: inherit;
+  margin: 0;
+  opacity: 1;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  visibility: hidden;
+  width: 100%;
+  will-change: opacity;
+}
+
+div.quick-seek-container {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: flex;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  justify-content: space-between;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+  width: 100%;
+}
+
+div.quick-seek-placeholder.quick-seek-placeholder--left {
+  align-items: center;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  justify-content: center;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+  width: 45%;
+}
+
+div.quick-seek-placeholder-background.quick-seek-placeholder-background--left {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  border-width: 0;
+  bottom: 0;
+  box-sizing: inherit;
+  color: #eee;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  left: -50%;
+  line-height: inherit;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  right: -50%;
+  text-align: center;
+  transform: scaleX(0.9) scaleY(1.4);
+  transform-origin: center center;
+  vertical-align: baseline;
+  width: 100%;
+  will-change: opacity, transform;
+  z-index: -1;
+}
+
+div.quick-seek-arrow-placeholder {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #eee;
+  display: flex;
+  flex-direction: row-reverse;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+figure.quick-seek-arrow {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #eee;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  justify-content: center;
+  line-height: inherit;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  text-align: center;
+  transform-origin: 24px 26px;
+  transition: transform 0.6s, opacity 0.3s;
+  vertical-align: baseline;
+}
+
+article figure.quick-seek-arrow svg {
+  box-sizing: inherit;
+  color: #eee;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 18px;
+  height: 48px;
+  line-height: 23.4px;
+  text-align: center;
+  width: 48px;
+}
+
+span.quick-seek-label.left {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #eee;
+  display: inline-block;
+  font-family: opensans-regular;
+  font-size: 12px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: 700;
+  left: 36%;
+  letter-spacing: 0;
+  line-height: inherit;
+  margin: 0 0 8px;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  transition: opacity 0.3s;
+  vertical-align: baseline;
+}
+
+div.quick-seek-placeholder.quick-seek-placeholder--right {
+  align-items: center;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  justify-content: center;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+  width: 45%;
+}
+
+div.quick-seek-placeholder-background.quick-seek-placeholder-background--right {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  border-width: 0;
+  bottom: 0;
+  box-sizing: inherit;
+  color: #eee;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  line-height: inherit;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  right: -50%;
+  text-align: center;
+  transform: scaleX(0.9) scaleY(1.4);
+  transform-origin: center center;
+  vertical-align: baseline;
+  width: 100%;
+  will-change: opacity, transform;
+  z-index: -1;
+}
+
+span.quick-seek-label {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #eee;
+  display: inline-block;
+  font-family: opensans-regular;
+  font-size: 12px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: 700;
+  left: 36%;
+  letter-spacing: 0;
+  line-height: inherit;
+  margin: 0 0 8px;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  transition: opacity 0.3s;
+  vertical-align: baseline;
+}
+
+div.media-control-panel__between {
+  align-items: center;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: flex;
+  flex: 1 1 0;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  justify-content: center;
+  line-height: inherit;
+  margin: 0;
+  padding: 0 4px;
+  position: relative;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+button.media-control-button.skip-button.skip-button--live_button.skip-button--hidden.media-control-element {
+  align-items: center;
+  background-color: #eee;
+  border-radius: 4px;
+  border-width: 0;
+  bottom: -8px;
+  box-sizing: content-box;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: auto;
+  margin: 0 12px;
+  opacity: 0;
+  padding: 6px 12px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  visibility: hidden;
+  width: auto;
+  will-change: opacity, transform;
+  z-index: 400;
+}
+
+button.media-control-button.skip-button.skip-button--live_button.skip-button--hidden.media-control-element:hover {
+  background-color: #cecece;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 4px 8px;
+}
+
+button.media-control-button.skip-button.skip-button--live_button.skip-button--hidden.media-control-element:focus {
+  background-color: #cecece;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 4px 8px;
+  outline: none;
+}
+
+span.skip-button__label {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #111;
+  cursor: pointer;
+  font-family: opensans-regular, sans-serif;
+  font-size: 14px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.14;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+article
+  button.media-control-button.skip-button.skip-button--live_button.skip-button--hidden.media-control-element
+  svg {
+  box-sizing: inherit;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: 24px;
+  margin-left: 5px;
+  margin-top: 2px;
+  text-align: center;
+  transform: rotate(180deg);
+  width: 24px;
+}
+
+article svg title {
+  box-sizing: inherit;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13.3333px;
+  text-align: center;
+}
+
+button.media-control-button.skip-button.skip-button--recap.skip-button--hidden.media-control-element {
+  align-items: center;
+  background-color: #333;
+  border-radius: 4px;
+  border-width: 0;
+  bottom: -8px;
+  box-sizing: content-box;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: auto;
+  margin: 0 12px;
+  opacity: 0;
+  padding: 12px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  visibility: hidden;
+  width: auto;
+  will-change: opacity, transform;
+  z-index: 400;
+}
+
+button.media-control-button.skip-button.skip-button--recap.skip-button--hidden.media-control-element:hover {
+  background-color: #eee;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 4px 8px;
+}
+
+button.media-control-button.skip-button.skip-button--recap.skip-button--hidden.media-control-element:focus {
+  background-color: #eee;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 4px 8px;
+  outline: none;
+}
+
+button.media-control-button.skip-button.skip-button--intro.skip-button--hidden.media-control-element {
+  align-items: center;
+  background-color: #333;
+  border-radius: 4px;
+  border-width: 0;
+  bottom: -8px;
+  box-sizing: content-box;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: auto;
+  margin: 0 12px;
+  opacity: 0;
+  padding: 12px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  visibility: hidden;
+  width: auto;
+  will-change: opacity, transform;
+  z-index: 400;
+}
+
+button.media-control-button.skip-button.skip-button--intro.skip-button--hidden.media-control-element:hover {
+  background-color: #eee;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 4px 8px;
+}
+
+button.media-control-button.skip-button.skip-button--intro.skip-button--hidden.media-control-element:focus {
+  background-color: #eee;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 4px 8px;
+  outline: none;
+}
+
+button.media-control-button.skip-button.skip-button--left.skip-button--start_over.skip-button--hidden.media-control-element {
+  align-items: center;
+  background-color: #eee;
+  border-radius: 4px;
+  border-width: 0;
+  bottom: -8px;
+  box-sizing: content-box;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: auto;
+  left: 0;
+  margin: 0 12px;
+  opacity: 0;
+  padding: 6px 12px;
+  pointer-events: none;
+  position: absolute;
+  right: auto;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  visibility: hidden;
+  width: auto;
+  will-change: opacity, transform;
+  z-index: 400;
+}
+
+button.media-control-button.skip-button.skip-button--left.skip-button--start_over.skip-button--hidden.media-control-element:hover {
+  background-color: #cecece;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 4px 8px;
+}
+
+button.media-control-button.skip-button.skip-button--left.skip-button--start_over.skip-button--hidden.media-control-element:focus {
+  background-color: #cecece;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 4px 8px;
+  outline: none;
+}
+
+article
+  button.media-control-button.skip-button.skip-button--left.skip-button--start_over.skip-button--hidden.media-control-element
+  svg {
+  box-sizing: inherit;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: 24px;
+  margin-right: 5px;
+  margin-top: 2px;
+  text-align: center;
+  width: 24px;
+}
+
+div.media-control-panel__lower {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0 4px 4px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+div.bar-container.media-control-element {
+  align-items: center;
+  border-width: 0;
+  box-sizing: content-box;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 24px;
+  left: 50%;
+  line-height: inherit;
+  margin: 0;
+  opacity: 0;
+  padding: 12px 0;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  top: calc(50% + 6px);
+  touch-action: manipulation;
+  transform: translate(-50%, -50%);
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  width: calc(100% - 24px);
+  will-change: opacity;
+}
+
+div.bar-background {
+  align-self: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 2px;
+  left: 50%;
+  line-height: inherit;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: scaleY(1) translate(-50%, -50%);
+  transform-origin: center top;
+  transition: transform 0.2s;
+  vertical-align: baseline;
+  width: 100%;
+  will-change: transform;
+}
+
+div.bar-fill-1 {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  left: 0;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  transition: width 0.1s;
+  vertical-align: baseline;
+  width: 0;
+}
+
+div.bar-fill-2 {
+  background-color: #fff;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  left: 0;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  vertical-align: baseline;
+  width: calc(0% + 2px);
+}
+
+div.bar-hover {
+  background-color: red;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  display: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  vertical-align: baseline;
+  width: 5px;
+}
+
+div.bar-scrubber {
+  align-self: center;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 8px;
+  left: 0;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  transform: translateX(0);
+  vertical-align: baseline;
+  width: 8px;
+  z-index: 200;
+}
+
+div.bar-scrubber-icon {
+  background-color: #fff;
+  border-radius: 50%;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  left: 0;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  transform: scale(1);
+  transition: transform 0.2s;
+  vertical-align: baseline;
+  width: 100%;
+  will-change: transform;
+}
+
+div.thumb-preview.thumb-preview--hidden {
+  align-items: center;
+  border-width: 0;
+  bottom: 44px;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  justify-content: center;
+  line-height: inherit;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  visibility: hidden;
+}
+
+div.thumb-preview__thumb {
+  background-color: rgba(0, 0, 0, 0.75);
+  background-repeat: no-repeat no-repeat;
+  border-radius: 2px;
+  border-width: 0;
+  bottom: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  left: 0;
+  line-height: inherit;
+  margin: 0;
+  outline: 1px solid transparent;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  vertical-align: baseline;
+  width: 100%;
+}
+
+div.thumb-preview__position {
+  align-self: flex-end;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 2px 2px 0 0;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-family: opensans-regular, sans-serif;
+  font-size: 14px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 2px 8px 3px;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 2px;
+  vertical-align: baseline;
+  z-index: 100;
+}
+
+div.bar-container__placeholder {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 36px;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+div.chromecast-sender-indicator.media-control-element {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  opacity: 0;
+  padding: 0 12px;
+  pointer-events: none;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  will-change: opacity;
+}
+
+button.media-control-button.play.media-control-element {
+  background-color: transparent;
+  border-width: 0;
+  box-sizing: content-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: 24px;
+  margin: 0;
+  opacity: 0;
+  padding: 4px 12px 12px;
+  pointer-events: none;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  width: 24px;
+  will-change: opacity;
+}
+
+button.media-control-button.play.media-control-element:focus {
+  outline: none;
+}
+
+article button.media-control-button.play.media-control-element svg {
+  box-sizing: inherit;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+div.time-indicator.media-control-element {
+  align-items: center;
+  border-width: 0;
+  box-sizing: content-box;
+  color: #fff;
+  cursor: default;
+  display: flex;
+  font-family: opensans-regular, sans-serif;
+  font-size: 14px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 24px;
+  line-height: 16px;
+  margin: 0;
+  opacity: 0;
+  padding: 4px 12px 12px 0;
+  pointer-events: none;
+  position: relative;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 2px;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  will-change: opacity;
+}
+
+article div.time-indicator.media-control-element span {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: default;
+  display: inline;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 2px;
+  vertical-align: baseline;
+}
+
+span.separator {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: default;
+  display: inline;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0 5px;
+  opacity: 0.5;
+  padding: 0;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 2px;
+  vertical-align: baseline;
+}
+
+div.live-indicator.live-indicator--hide.media-control-element {
+  align-self: flex-start;
+  background-color: red;
+  border-radius: 2px;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 5px 0 0;
+  opacity: 0;
+  padding: 3px 6px;
+  pointer-events: none;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  will-change: opacity;
+}
+
+article div.live-indicator.live-indicator--hide.media-control-element span {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  font-family: opensans-bold, sans-serif;
+  font-size: 11px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  letter-spacing: -0.5px;
+  line-height: 1.45;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+div.media-control-position__between {
+  align-items: center;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: flex;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  justify-content: center;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+div.quick-seek-hint.hidden.media-control-element {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  opacity: 0;
+  padding: 4px 12px 12px;
+  pointer-events: none;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  visibility: hidden;
+  will-change: opacity;
+}
+
+span.quick-seek-hint__label {
+  align-items: center;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #eee;
+  display: flex;
+  font-family: opensans-regular;
+  font-size: 14px;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.14;
+  margin: 0;
+  opacity: 0.8;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+}
+
+span.quick-seek-hint__arrow.quick-seek-hint__arrow--left {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #eee;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 20px;
+  line-height: inherit;
+  margin: 0 4px 0 8px;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+  width: 20px;
+}
+
+article span.quick-seek-hint__arrow.quick-seek-hint__arrow--left svg {
+  box-sizing: inherit;
+  color: #eee;
+  font-family: opensans-regular;
+  font-size: 14px;
+  height: 100%;
+  line-height: 15.96px;
+  text-align: center;
+  width: 100%;
+}
+
+article g rect {
+  box-sizing: inherit;
+  color: #eee;
+  font-family: opensans-regular;
+  font-size: 14px;
+  line-height: 15.96px;
+  text-align: center;
+}
+
+span.quick-seek-hint__arrow.quick-seek-hint__arrow--right {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #eee;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 20px;
+  line-height: inherit;
+  margin: 0 8px 0 0;
+  padding: 0;
+  text-align: center;
+  transform: rotate(180deg);
+  vertical-align: baseline;
+  width: 20px;
+}
+
+article span.quick-seek-hint__arrow.quick-seek-hint__arrow--right svg {
+  box-sizing: inherit;
+  color: #eee;
+  font-family: opensans-regular;
+  font-size: 14px;
+  height: 100%;
+  line-height: 15.96px;
+  text-align: center;
+  width: 100%;
+}
+
+div.drawer-container.volume-hide.media-control-element {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  opacity: 0;
+  padding: 4px 12px 12px;
+  pointer-events: none;
+  position: relative;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  will-change: opacity;
+  z-index: auto;
+}
+
+div.drawer-icon-container {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 24px;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+  width: 24px;
+}
+
+button.drawer-icon.media-control-button.media-control-element {
+  background-color: transparent;
+  border-width: 0;
+  box-sizing: content-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: 24px;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  pointer-events: none;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  width: 24px;
+  will-change: opacity;
+}
+
+button.drawer-icon.media-control-button.media-control-element:focus {
+  outline: none;
+}
+
+article button.drawer-icon.media-control-button.media-control-element svg {
+  box-sizing: inherit;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+div.bar-container {
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 4px;
+  border-width: 0;
+  bottom: 42px;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 115px;
+  left: 8px;
+  line-height: inherit;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  visibility: hidden;
+  width: 30px;
+  will-change: visibility, opacity;
+}
+
+div.bar-container:after {
+  bottom: -10px;
+  content: "";
+  height: 10px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+button.chromecast-button.media-control-button.media-control-element {
+  background-color: transparent;
+  border-width: 0;
+  box-sizing: content-box;
+  color: #000;
+  cursor: pointer;
+  display: none;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: 24px;
+  margin: 0;
+  opacity: 0;
+  padding: 4px 12px 12px;
+  pointer-events: none;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  width: 24px;
+  will-change: opacity;
+}
+
+button.chromecast-button.media-control-button.media-control-element:focus {
+  outline: none;
+}
+
+article
+  button.chromecast-button.media-control-button.media-control-element
+  svg {
+  box-sizing: inherit;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13.3333px;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+article svg defs {
+  box-sizing: inherit;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13.3333px;
+  text-align: center;
+}
+
+path#cast-off-a {
+  box-sizing: inherit;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13.3333px;
+  text-align: center;
+}
+
+path#cast-off-c {
+  box-sizing: inherit;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13.3333px;
+  text-align: center;
+}
+
+mask#cast-off-b {
+  box-sizing: inherit;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13.3333px;
+  text-align: center;
+}
+
+article mask#cast-off-b use {
+  box-sizing: inherit;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13.3333px;
+  text-align: center;
+}
+
+article g use {
+  box-sizing: inherit;
+  color: #000;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13.3333px;
+  text-align: center;
+}
+
+div.settings.media-control-element--hidden.media-control-element {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  display: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: 100%;
+  margin: 0;
+  opacity: 0;
+  padding: 4px 12px 12px;
+  pointer-events: none;
+  position: relative;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  will-change: opacity;
+}
+
+div.media-control-panel__front-layer {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+}
+
+div.media-control-placeholder.disabled.hidden.media-control-element {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 24px;
+  line-height: inherit;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  pointer-events: none;
+  position: relative;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  visibility: hidden;
+  width: 100%;
+  will-change: opacity;
+}
+
+div.media-control-panel__modal {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  opacity: 1;
+  padding: 0;
+  pointer-events: auto;
+  text-align: center;
+  transition: visibility 0.3s, opacity 0.3s;
+  vertical-align: baseline;
+  visibility: visible;
+  will-change: opacity;
+}
+
+div.seek-time {
+  background-color: rgba(2, 2, 2, 0.5);
+  border-width: 0;
+  bottom: 55px;
+  box-sizing: inherit;
+  color: #333;
+  display: none;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 20px;
+  left: -100%;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  transition: opacity 0.1s;
+  vertical-align: baseline;
+  white-space: nowrap;
+  z-index: 9999;
+}
+
+article div.seek-time span {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #fff;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 100%;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+div.clappr-detach {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  display: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+div.clappr-detach__placeholder-background {
+  background-image: url(data:image/gif;);
+  background-size: 100% 100%;
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  filter: blur(5px);
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 100%;
+  left: 0;
+  line-height: inherit;
+  margin: 0;
+  opacity: 0.85;
+  padding: 0;
+  top: 0;
+  width: 100%;
+}
+
+span.clappr-detach__icon.clappr-detach__placeholder-icon {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 20%;
+  left: 50%;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+}
+
+svg.clappr-detach__icon {
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  fill: #fff;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  line-height: 23.4px;
+}
+
+article svg.clappr-detach__icon path {
+  box-sizing: inherit;
+  color: #333;
+  cursor: pointer;
+  fill: #fff;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  line-height: 23.4px;
+}
+
+article div.wall.protected-content script {
+  box-sizing: inherit;
+}
+
+div.show-multicontent-playlist-container.mc-column {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  float: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0 auto 1.75rem;
+  max-width: 85rem;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+div.show-multicontent-playlist-container.mc-column:after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+
+div.show-multicontent-playlist-container.mc-column:before {
+  content: " ";
+  display: table;
+}
+
+@media (min-width: 64rem) {
+  div.show-multicontent-playlist-container.mc-column {
+    float: none;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 42.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 70%;
+  }
+
+  div.show-multicontent-playlist-container.mc-column:after {
+    clear: both;
+    content: " ";
+    display: table;
+  }
+
+  div.show-multicontent-playlist-container.mc-column:before {
+    content: " ";
+    display: table;
+  }
+
+  div.show-multicontent-playlist-container.mc-column:last-child {
+    float: none;
+  }
+
+  div.show-multicontent-playlist-container.mc-column:main {
+    float: none;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  div.show-multicontent-playlist-container.mc-column {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (min-width: 64rem) and (min-width: 64em) {
+  div.show-multicontent-playlist-container.mc-column {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+article div.show-multicontent-playlist-container.mc-column a {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #c4170c;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+article div.show-multicontent-playlist-container.mc-column a:hover {
+  color: #a6130a;
+}
+
+div.show-multicontent-playlist {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #c4170c;
+  column-gap: 8px;
+  cursor: pointer;
+  display: grid;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  grid-template-areas: "left ." "left .";
+  grid-template-columns: calc(65% - 4px) calc(35% - 4px);
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  row-gap: 8px;
+}
+
+span.show-multicontent-playlist__label {
+  align-items: center;
+  border-width: 0;
+  bottom: 0;
+  box-sizing: inherit;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: 600;
+  line-height: inherit;
+  margin: 0 16px 24px 24px;
+  padding: 0;
+  position: absolute;
+  z-index: 3;
+}
+
+@media only screen and (max-width: 600px) {
+  span.show-multicontent-playlist__label {
+    margin: 0 8.4px 16px 16px;
+  }
+}
+
+svg.theme-color-primary.show-multicontent-playlist__label__icon {
+  box-sizing: inherit;
+  color: #c4170c;
+  cursor: pointer;
+  fill: currentcolor;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 23.4px;
+  margin-right: 16px;
+}
+
+@media only screen and (max-width: 600px) {
+  svg.theme-color-primary.show-multicontent-playlist__label__icon {
+    margin-right: 8.4px;
+  }
+}
+
+article svg.theme-color-primary.show-multicontent-playlist__label__icon g {
+  box-sizing: inherit;
+}
+
+article g circle {
+  box-sizing: inherit;
+}
+
+amp-img.show-multicontent-playlist__left-thumbnail.show-multicontent-playlist-overlay.glb-skeleton-box.i-amphtml-element.i-amphtml-layout-responsive.i-amphtml-layout-size-defined.i-amphtml-built.i-amphtml-layout {
+  --skeleton-height: auto;
+  --skeleton-width: 100%;
+  animation: bg-skeleton-box 1s linear infinite;
+  background-color: #eee;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-position: -2500% 0;
+  background-repeat: no-repeat no-repeat;
+  background-size: 95% 100%;
+  box-sizing: inherit;
+  color: #c4170c;
+  cursor: pointer;
+  display: flex;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  grid-column-end: left;
+  grid-column-start: left;
+  grid-row-end: left;
+  grid-row-start: left;
+  height: 100%;
+  line-height: 23.4px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+amp-img.show-multicontent-playlist__left-thumbnail.show-multicontent-playlist-overlay.glb-skeleton-box.i-amphtml-element.i-amphtml-layout-responsive.i-amphtml-layout-size-defined.i-amphtml-built.i-amphtml-layout:not([layout="container"]):not(.i-amphtml-element) {
+  color: transparent;
+  line-height: 0;
+}
+
+amp-img.show-multicontent-playlist__left-thumbnail.show-multicontent-playlist-overlay.glb-skeleton-box.i-amphtml-element.i-amphtml-layout-responsive.i-amphtml-layout-size-defined.i-amphtml-built.i-amphtml-layout:after {
+  background-color: initial;
+  background-image: linear-gradient(202deg, transparent 50%, #000 100%);
+  border-radius: 10px;
+  bottom: 0;
+  content: "";
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+article
+  amp-img.show-multicontent-playlist__left-thumbnail.show-multicontent-playlist-overlay.glb-skeleton-box.i-amphtml-element.i-amphtml-layout-responsive.i-amphtml-layout-size-defined.i-amphtml-built.i-amphtml-layout
+  i-amphtml-sizer {
+  box-sizing: inherit;
+  color: #c4170c;
+  cursor: pointer;
+  display: block;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  line-height: 23.4px;
+  padding-top: 80%;
+}
+
+amp-img.show-multicontent-playlist__right-thumbnail.show-multicontent-playlist__second-thumbnail.glb-skeleton-box.i-amphtml-element.i-amphtml-layout-responsive.i-amphtml-layout-size-defined.i-amphtml-built.i-amphtml-layout {
+  --skeleton-height: auto;
+  --skeleton-width: 100%;
+  animation: bg-skeleton-box 1s linear infinite;
+  background-color: #eee;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-position: -2500% 0;
+  background-repeat: no-repeat no-repeat;
+  background-size: 95% 100%;
+  border-radius: 0 10px 0 0;
+  box-sizing: inherit;
+  color: #c4170c;
+  cursor: pointer;
+  display: inline-block;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  height: 100%;
+  line-height: 23.4px;
+  object-fit: cover;
+  overflow: hidden;
+  width: 100%;
+}
+
+amp-img.show-multicontent-playlist__right-thumbnail.show-multicontent-playlist__second-thumbnail.glb-skeleton-box.i-amphtml-element.i-amphtml-layout-responsive.i-amphtml-layout-size-defined.i-amphtml-built.i-amphtml-layout:not([layout="container"]):not(.i-amphtml-element) {
+  color: transparent;
+  line-height: 0;
+}
+
+article
+  amp-img.show-multicontent-playlist__right-thumbnail.show-multicontent-playlist__second-thumbnail.glb-skeleton-box.i-amphtml-element.i-amphtml-layout-responsive.i-amphtml-layout-size-defined.i-amphtml-built.i-amphtml-layout
+  i-amphtml-sizer {
+  box-sizing: inherit;
+  color: #c4170c;
+  cursor: pointer;
+  display: block;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  line-height: 23.4px;
+  padding-top: 80%;
+}
+
+amp-img.show-multicontent-playlist__right-thumbnail.show-multicontent-playlist__third-thumbnail.glb-skeleton-box.i-amphtml-element.i-amphtml-layout-responsive.i-amphtml-layout-size-defined.i-amphtml-built.i-amphtml-layout {
+  --skeleton-height: auto;
+  --skeleton-width: 100%;
+  animation: bg-skeleton-box 1s linear infinite;
+  background-color: #eee;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-position: -2500% 0;
+  background-repeat: no-repeat no-repeat;
+  background-size: 95% 100%;
+  border-radius: 0 0 10px 0;
+  box-sizing: inherit;
+  color: #c4170c;
+  cursor: pointer;
+  display: inline-block;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  height: 100%;
+  line-height: 23.4px;
+  object-fit: cover;
+  overflow: hidden;
+  width: 100%;
+}
+
+amp-img.show-multicontent-playlist__right-thumbnail.show-multicontent-playlist__third-thumbnail.glb-skeleton-box.i-amphtml-element.i-amphtml-layout-responsive.i-amphtml-layout-size-defined.i-amphtml-built.i-amphtml-layout:not([layout="container"]):not(.i-amphtml-element) {
+  color: transparent;
+  line-height: 0;
+}
+
+article
+  amp-img.show-multicontent-playlist__right-thumbnail.show-multicontent-playlist__third-thumbnail.glb-skeleton-box.i-amphtml-element.i-amphtml-layout-responsive.i-amphtml-layout-size-defined.i-amphtml-built.i-amphtml-layout
+  i-amphtml-sizer {
+  box-sizing: inherit;
+  color: #c4170c;
+  cursor: pointer;
+  display: block;
+  font-family: opensans, helvetica, arial, sans-serif;
+  font-size: 18px;
+  line-height: 23.4px;
+  padding-top: 80%;
+}
+
+div.block-podcast {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+div.mc-column.content-media.content-media--normal.podcast-container {
+  border-width: 0;
+  box-sizing: inherit;
+  clear: both;
+  color: #333;
+  float: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 2.5rem auto;
+  max-width: 85rem;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+div.mc-column.content-media.content-media--normal.podcast-container:after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+
+div.mc-column.content-media.content-media--normal.podcast-container:before {
+  content: " ";
+  display: table;
+}
+
+@media (min-width: 64rem) {
+  div.mc-column.content-media.content-media--normal.podcast-container {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 42.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 70%;
+  }
+
+  div.mc-column.content-media.content-media--normal.podcast-container:after {
+    clear: both;
+    content: " ";
+    display: table;
+  }
+
+  div.mc-column.content-media.content-media--normal.podcast-container:before {
+    content: " ";
+    display: table;
+  }
+
+  div.mc-column.content-media.content-media--normal.podcast-container:last-child {
+    float: none;
+  }
+
+  div.mc-column.content-media.content-media--normal.podcast-container:main {
+    float: none;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  div.mc-column.content-media.content-media--normal.podcast-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (min-width: 64rem) and (min-width: 64em) {
+  div.mc-column.content-media.content-media--normal.podcast-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 528px) {
+  div.mc-column.content-media.content-media--normal.podcast-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+iframe.podcast-iframe.audiopub-player {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  height: 232px;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+@media (max-width: 528px) {
+  iframe.podcast-iframe.audiopub-player {
+    height: 250px;
+  }
+}
+
+div.wall.protected-content div {
+  border-width: 0;
+  box-sizing: inherit;
+  color: #333;
+  font-family: inherit;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant-caps: inherit;
+  font-variant-east-asian: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-numeric: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+</style>
+
+
 </head>
 <body>
 <div id="header"></div>
 
 <div class="container">
-  <h1 class="my-4 h1">Python Crash Course</h1>
+  <h1 class="content-head__title" itemprop="headline" style="padding-top: 50px; font-size: 56px; font-weight: 700; ">Polícia indicia professor universitário aposentado por injúria racial contra vendedor em shopping de Maceió</h1>
   <hr class="my-4">
   <div class="row">
     <div class="col">
       <p style="text-align: center;">
-        <img src="https://camo.githubusercontent.com/ea595b58a4745be54628e06b2ea634a79530ef06a49be5d2b9a2f3d63266d567/68747470733a2f2f696d616765732d6e612e73736c2d696d616765732d616d617a6f6e2e636f6d2f696d616765732f492f3831766d4a434e436d364c2e6a7067" 
-        style="max-height: 400px;">
-      </p>
-        <div class="card">
-          <div class="card-header">
-            <h1 style="text-align: center;">The Zen of Python, by Tim Peters</h1>
-          </div>
-          <div class="card-body" style="white-space: pre;">
-            Beautiful is better than ugly.
-            Explicit is better than implicit.
-            Simple is better than complex.
-            Complex is better than complicated.
-            Flat is better than nested.
-            Sparse is better than dense.
-            Readability counts.
-            Special cases aren't special enough to break the rules.
-            Although practicality beats purity.
-            Errors should never pass silently.
-            Unless explicitly silenced.
-            In the face of ambiguity, refuse the temptation to guess.
-            There should be one-- and preferably only one --obvious way to do it.
-            Although that way may not be obvious at first unless you're Dutch.
-            Now is better than never.
-            Although never is often better than *right* now.
-            If the implementation is hard to explain, it's a bad idea.
-            If the implementation is easy to explain, it may be a good idea.
-            Namespaces are one honking great idea -- let's do more of those!
+        <img src="https://camo.githubusercontent.com/ea595b58a4745be54628e06b2ea634a79530ef06a49be5d2b9a2f3d63266d567/68747470733a2f2f696d616765732d6e612e73736c2d696d616765732d616d617a6f6e2e636f6d2f696d616765732f492f3831766d4a434e436d364c2e6a7067" style="max-height: 400px;">
+      <article itemprop="articleBody">
+        <meta itemprop="isAccessibleForFree" content="true">
+        <div class="row medium-uncollapsed content-media content-photo" data-block-type="backstage-photo" data-block-id="0" style="border-width: 0px; box-sizing: border-box; clear: both; color: rgb(51, 51, 51); font-family: opensans, helvetica, arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 23.4px; margin: 2.5rem auto; max-width: 85rem; padding: 0px;">
+          <div class="mc-column content-media__container">
+            <!-- Line Break for lightbox caption due to styling limitation -->
+            </div>
+            <p class="content-media__description" style="border-width: 0px; box-sizing: border-box; color: rgb(85, 85, 85); display: block; font-family: opensans, helvetica, arial, sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: -0.01em; line-height: 1rem; margin: 1rem 0px 0px; padding: 0px; text-align: center;"> Luís Felipe Mesquita denunciou à polícia que foi vítima de injúria racial na loja que trabalha em um shopping em Maceió — Foto: Reprodução/Fique Alerta </p>
           </div>
         </div>
-        <br>
-        <h2>Hello World with Python Tutor!</h2>
-        <p>This is pretty cool</p>
-        <iframe width="800" height="300" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=%23%20Say%20hello%20to%20everyone.%0Aprint%28%22Hello%20World!%22%29%0A&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&heapPrimitives=true&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+        <div class="mc-column mc-side-item__container" data-block-type="ads" data-block-id="1">
+          <div class="mc-side-item mc-side-item--right content-ads content-ads--side-ad">
+            <div id="banner_materia1" class="tag-manager-publicidade-container"> </div>
+          </div>
+        </div>
+        <div class="mc-column content-text active-extra-styles " data-block-type="unstyled" data-block-weight="59" data-block-id="2">
+          <p class="content-text__container" data-track-category="Link no Texto" data-track-links="true" style="border-width: 0px; box-sizing: border-box; color: rgb(51, 51, 51); font-family: glbOpenSans, &quot;Open Sans&quot;, Arial, Inter, -apple-system, &quot;system-ui&quot;, Roboto, &quot;Helvetica Neue&quot;, Helvetica, Noto, Ubuntu, &quot;Segoe UI&quot;, sans-serif; font-size: 20px; font-weight: 400; letter-spacing: -0.6px; line-height: 30px; margin: 0px; padding: 0px; overflow-wrap: break-word;"> A Polícia Civil de Alagoas concluiu o inquérito sobre a <a href="https://g1.globo.com/al/alagoas/noticia/2021/11/25/vendedor-negro-denuncia-injuria-racial-apos-homem-puxar-seu-cabelo-e-ameacar-tocar-fogo-dentro-de-loja-de-shopping-em-maceio.ghtml">injúria racial sofrida pelo jovem Luís Felipe Mesquita, vendedor </a>na loja Centauro, no Parque Shopping, em<a href="https://g1.globo.com/al/alagoas/cidade/maceio/"> Mace</a>i<a href="https://g1.globo.com/al/alagoas/cidade/maceio/">ó</a>, na época da denúncia. O delegado Robervaldo Davino, do 6º Distrito Policial, indiciou nesta quarta-feira (9) o professor universitário aposentado, de 68 anos, pelos crimes de injúria racial, perseguição e ameaça. </p>
+        </div>
+        <div class="wall protected-content">
+          <div class="mc-column content-text active-extra-styles " data-block-type="unstyled" data-block-weight="40" data-block-id="3">
+            <p class="content-text__container" data-track-category="Link no Texto" data-track-links="true"> O jovem de 27 anos, que é negro, denunciou que sofreu agressões e ameaças de Lauro Farias Júnior, professor aposentado do curso de economia da Universidade Federal de Alagoas (Ufal), durante os quatro meses que trabalhou no shopping. </p>
+          </div>
+          <div class="mc-column content-text active-extra-styles " data-block-type="unstyled" data-block-weight="35" data-block-id="4">
+            <p class="content-text__container " data-track-category="Link no Texto" data-track-links=""> O delegado disse que Lauro Farias Júnior foi ouvido na delegacia, e negou as acusações. “Ele nega as acusações, mas temos indícios de que os crimes foram cometidos, inclusive por meio de depoimentos de testemunhas”. </p>
+          </div>
+          <div class="content-ads content-ads--reveal" data-block-type="ads" data-block-id="5">
+            <div data-id="banner_materia2" class="tag-manager-publicidade-container mc-has-reveal mc-has-ad-lazyload"> </div>
+          </div>
+          <div class="mc-column content-text active-extra-styles " data-block-type="unstyled" data-block-weight="56" data-block-id="6">
+            <p class="content-text__container " data-track-category="Link no Texto" data-track-links=""> Na denúncia, Luis Felipe relatou que foi perseguido e ameaçado pelo professor aposentado, que fazia gestos de tesoura e de macaco, com ofensas e ameaças. A vítima relatou que o caso mais grave foi quando o agressor entrou na loja, puxou seu cabelo black power e falou: "Se eu tivesse fósforo, eu tocaria fogo em você". </p>
+          </div>
+          <div class="mc-column content-text active-extra-styles " data-block-type="unstyled" data-block-weight="20" data-block-id="7">
+            <p class="content-text__container " data-track-category="Link no Texto" data-track-links=""> Ainda na época da denúncia, a Universidade Federal de Alagoas (Ufal) <a href="https://g1.globo.com/al/alagoas/noticia/2021/11/26/ufal-repudia-crime-racial-contra-vendedor-em-shopping-de-maceio-professor-aposentado-e-suspeito.ghtml">repudiou o crime racial sofrido por Luís Felipe</a>. </p>
+          </div>
+          <div class="mc-column content-text active-extra-styles " data-block-type="unstyled" data-block-weight="19" data-block-id="8">
+            <p class="content-text__container " data-track-category="Link no Texto" data-track-links=""> O inquérito vai ser encaminhado ao Ministério Público Estadual (MP-AL), que vai decidir se oferece ou não denúncia. </p>
+          </div>
+          <div class="mc-column content-text active-extra-styles" data-block-type="raw" data-block-weight="10" data-block-id="9">
+            <p class="content-text__container"></p>
+            <div class="content-intertitle">
+              <h2>VÍDEO: Senado aprova projeto que tipifica injúria racial como racismo</h2>
+            </div>
+            <p></p>
+          </div>
+             <div class="show-multicontent-playlist"> <span class="show-multicontent-playlist__label">
+              </div>
+            </a> </div>
+          <div class="block-podcast">
+            <div class="mc-column content-media content-media--normal podcast-container" data-block-type="multicontent-podcast" data-block-id="14"> <iframe class="podcast-iframe audiopub-player" src="https://s3.glbimg.com/v1/AUTH_14ce1dbebbe64b1e8e955809a085692d/web-components/teste-ab.html?urls=eyJ1cmwiOiJodHRwczovL3MzLmdsYmltZy5jb20vdjEvQVVUSF8xNGNlMWRiZWJiZTY0YjFlOGU5NTU4MDlhMDg1NjkyZC93ZWItY29tcG9uZW50cy9wcm9kL3dpZGdldC5odG1sP3Byb2R1Y3ROYW1lPWcxJnByb2R1Y3RDb2xvcj0lMjNDNDE3MEMmYXJ0d29ya1VSTD1odHRwcyUzQSUyRiUyRnMzLmdsYmltZy5jb20lMkZ2MSUyRkFVVEhfNTllZGQ0MjJjMGM4NGE4NzliZDM3NjcwYWU0ZjUzOGElMkZhdWRpb3B1Yi1wb2RjYXN0cyUyRmJzJTJGMjAyMSUyRkYlMkZnJTJGNUE0Q3N4VFJxZ0Q0Mmswek1EQXclMkZwb2RjYXN0LW9hc3N1bnRvLTMwMDB4MzAwMC5wbmcmYXVkaW9VUkw9aHR0cHMlM0ElMkYlMkZ0cmFmZmljLm9tbnkuZm0lMkZkJTJGY2xpcHMlMkY2NTFhMjUxZS0wNmUxLTQ3ZTAtOTMzNi1hYzVhMDBmNDE2MjglMkYwNDU2MWI0My03NTNkLTQ3ODQtOGUxOS1hYzhiMDBlODY0MTElMkYwOWIyM2JlNi1lNDRkLTQ2ODgtOTVkOS1hZTM3MDA0MmE0ZWUlMkZhdWRpby5tcDMmZHVyYXRpb249MTMxOC42ODcmYXV0aG9yPUcxJmVwaXNvZGVUaXRsZT1BbGZhYmV0aXphJUMzJUE3JUMzJUEzbyUzQStvK3Bpb3IrZG9zK3JldHJvY2Vzc29zJnBvZGNhc3RUaXRsZT1PK0Fzc3VudG8mcHVibGlzaGVkQXQ9MjAyMi0wMi0wOVQwNCUzQTAzJTNBMTJaJnNoYXJlVXJsPWh0dHBzJTNBJTJGJTJGZzEuZ2xvYm8uY29tJTJGcG9kY2FzdCUyRm8tYXNzdW50byUyRiIsInVybF9vbW55IjoiaHR0cHM6Ly9vbW55LmZtL3Nob3dzL28tYXNzdW50by0xL2FsZmFiZXRpemEtby1vLXBpb3ItZG9zLXJldHJvY2Vzc29zL2VtYmVkP3N0eWxlPWFydHdvcmsmaW1hZ2U9MSZzaGFyZT0wJmRvd25sb2FkPTAmZGVzY3JpcHRpb249MCZzdWJzY3JpYmU9MCZmb3JlZ3JvdW5kPTAwMDAwMCZiYWNrZ3JvdW5kPWYyZjJmMiZkaXN0PWcxLW8maGlnaGxpZ2h0PUM0MTcwQyIsInVybF9yYyI6Imh0dHBzOi8vczMuZ2xiaW1nLmNvbS92MS9BVVRIXzE0Y2UxZGJlYmJlNjRiMWU4ZTk1NTgwOWEwODU2OTJkL3dlYi1jb21wb25lbnRzL3Byb2QvcmMvd2lkZ2V0LXJjLmh0bWw/cHJvZHVjdE5hbWU9ZzEmcHJvZHVjdENvbG9yPSUyM0M0MTcwQyZhcnR3b3JrVVJMPWh0dHBzJTNBJTJGJTJGczMuZ2xiaW1nLmNvbSUyRnYxJTJGQVVUSF81OWVkZDQyMmMwYzg0YTg3OWJkMzc2NzBhZTRmNTM4YSUyRmF1ZGlvcHViLXBvZGNhc3RzJTJGYnMlMkYyMDIxJTJGRiUyRmclMkY1QTRDc3hUUnFnRDQyazB6TURBdyUyRnBvZGNhc3Qtb2Fzc3VudG8tMzAwMHgzMDAwLnBuZyZhdWRpb1VSTD1odHRwcyUzQSUyRiUyRnRyYWZmaWMub21ueS5mbSUyRmQlMkZjbGlwcyUyRjY1MWEyNTFlLTA2ZTEtNDdlMC05MzM2LWFjNWEwMGY0MTYyOCUyRjA0NTYxYjQzLTc1M2QtNDc4NC04ZTE5LWFjOGIwMGU4NjQxMSUyRjA5YjIzYmU2LWU0NGQtNDY4OC05NWQ5LWFlMzcwMDQyYTRlZSUyRmF1ZGlvLm1wMyZkdXJhdGlvbj0xMzE4LjY4NyZhdXRob3I9RzEmZXBpc29kZVRpdGxlPUFsZmFiZXRpemElQzMlQTclQzMlQTNvJTNBK28rcGlvcitkb3MrcmV0cm9jZXNzb3MmcG9kY2FzdFRpdGxlPU8rQXNzdW50byZwdWJsaXNoZWRBdD0yMDIyLTAyLTA5VDA0JTNBMDMlM0ExMlomc2hhcmVVcmw9aHR0cHMlM0ElMkYlMkZnMS5nbG9iby5jb20lMkZwb2RjYXN0JTJGby1hc3N1bnRvJTJGIn0=&amp;channel=desktop" referrerpolicy="unsafe-url" frameborder="0" scrolling="no" width="320" height="210"> </iframe> </div>
+          </div>
+          <div class="content-ads content-ads--reveal" data-block-type="ads" data-block-id="15">
+            <div data-id="banner_materia__114ab0e2-b9e4-460c-ae2f-11549cec693d" class="tag-manager-publicidade-container mc-has-reveal mc-has-ad-lazyload"> </div>
+          </div>
+          <div data-track-category="multicontent" data-track-action="ultimo chunk conteudo" data-track-noninteraction="false" data-track-scroll="view">
+            <div class="mc-column content-text active-extra-styles " data-block-type="unstyled" data-block-weight="9" data-block-id="16">
+              <p class="content-text__container " data-track-category="Link no Texto" data-track-links=""> <a href="https://g1.globo.com/al/alagoas/">Veja mais notícias da região no g1 AL </a> </p>
+            </div>
+          </div>
+        </div>
+      </article>
+      
+      
 
-    </div>
-  </div>
+
+
+          </div>
 </div>
 
 

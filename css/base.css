@@ -1,0 +1,79 @@
+/* static/css/base.css */
+
+h2.content-head__subtitle {
+    border-width: 0;
+    box-sizing: border-box;
+    color: #555;
+    font-family: glbOpenSans, "Open Sans", Arial, Inter, -apple-system, "system-ui", Roboto, "Helvetica Neue", Helvetica, Noto, Ubuntu, "Segoe UI", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 150%;
+    margin: 0;
+    padding: 0 24px 0 0;
+    text-align: left;
+  }
+  
+p.content-media__description {
+    border-width: 0;
+    box-sizing: border-box;
+    color: #555;
+    display: block;
+    font-family: opensans, helvetica, arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1rem;
+    margin: 1rem 0 0;
+    padding: 0;
+  }
+  
+
+a.header-editoria--link.ellip-line {
+    border-width: 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: glbOpenSans,"Open Sans",Arial,Inter,-apple-system,"system-ui",Roboto,"Helvetica Neue",Helvetica,Noto,Ubuntu,"Segoe UI",sans-serif;
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: -.04em;
+    line-height: normal;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+    overflow-wrap: normal;
+    padding: 0 3px 2px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    transition: opacity 300ms;
+    vertical-align: middle;
+    white-space: nowrap;
+  
+    &:hover {
+      opacity: .7;
+    }
+}
+
+img {
+    border-width: 0;
+    box-sizing: border-box;
+    color: #00e;
+    cursor: pointer;
+    display: block;
+    font-family: glbOpenSans,"Open Sans",Arial,Inter,-apple-system,"system-ui",Roboto,"Helvetica Neue",Helvetica,Noto,Ubuntu,"Segoe UI",sans-serif;
+    font-size: 0;
+    font-weight: 400;
+    letter-spacing: -1px;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+
+  
